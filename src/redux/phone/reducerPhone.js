@@ -11,7 +11,7 @@ const initialState = {
         case BUY_PHONE:
             return {
                 ...state,
-                phones: state.phones - 1
+                phones: state.phones <= 0 ?  0 : state.phones - 1
             }
     
         default: return state
