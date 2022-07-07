@@ -1,11 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import phone from "../images/phone.jpg";
 import { buyPhone } from '../redux/phone/actionPhone';
 
 const PhoneComponent = () => {
   
  const phones = useSelector( state => state.phones);
+ const dispatch = useDispatch();
 
   return (
       <div className="child">
@@ -18,7 +19,7 @@ const PhoneComponent = () => {
         <p>
           Disponibilité : <span id="count"> {phones} </span>
         </p>
-        <button id="buy-phone">Achetter</button>
+        <button onClick={() => dispatch(buyPhone())} id="buy-phone">Achetter</button>
       </div>
   );
 };
