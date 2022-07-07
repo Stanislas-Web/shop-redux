@@ -22,13 +22,13 @@ const PhoneComponent = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     phones: state.phones
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     buyPhone: () => dispatch(buyPhone())
   }
