@@ -1,11 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import phone from "../images/phone.jpg";
 import { buyPhone } from '../redux/phone/actionPhone';
 
-const PhoneComponent = (props) => {
+const PhoneComponent = () => {
+  
+ const phones = useSelector( state => state.phones);
 
-  console.log(props);
   return (
       <div className="child">
         <img
@@ -15,23 +16,50 @@ const PhoneComponent = (props) => {
           alt="phone"
         />
         <p>
-          Disponibilité : <span id="count">{props.phones}</span>
+          Disponibilité : <span id="count"> {phones} </span>
         </p>
-        <button onClick={()=> props.buyPhone()} id="buy-phone">Achetter</button>
+        <button id="buy-phone">Achetter</button>
       </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    phones: state.phones
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    buyPhone: () => dispatch(buyPhone())
-  }
-}
+export default PhoneComponent;
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneComponent);
+// import React from "react";
+// import { connect } from "react-redux";
+// import phone from "../images/phone.jpg";
+// import { buyPhone } from '../redux/phone/actionPhone';
+
+// const PhoneComponent = (props) => {
+
+//   console.log(props);
+//   return (
+//       <div className="child">
+//         <img
+//           width="300"
+//           height="200"
+//           src={phone}
+//           alt="phone"
+//         />
+//         <p>
+//           Disponibilité : <span id="count">{props.phones}</span>
+//         </p>
+//         <button onClick={()=> props.buyPhone()} id="buy-phone">Achetter</button>
+//       </div>
+//   );
+// };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     phones: state.phones
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     buyPhone: () => dispatch(buyPhone())
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(PhoneComponent);
